@@ -34,6 +34,9 @@
 # IntelliJ
 /out/
 
+# Generated JavaDoc files
+/docs
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 

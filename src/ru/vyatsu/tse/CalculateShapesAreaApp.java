@@ -8,15 +8,29 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
+/**
+ * Основной класс приложения. Определяет структури приложения и переходы между меню.
+ * @author Ruslan Nekhoroshkin
+ */
 public class CalculateShapesAreaApp {
+    /**
+     * Экземпляр класса BufferedReader для чтения потока из консоли
+     */
     private BufferedReader brConsole = new BufferedReader(new InputStreamReader(System.in));
 
+    /**
+     * Метод для запуска приложения
+     */
     public void start(){
         while (true){
             mainMenu();
         }
     }
 
+    /**
+     * Главное меню приложения
+     */
     private void mainMenu(){
         System.out.println("Программа расчета площадей фигур \n" +
                 "Выберите пункт меню:\n" +
@@ -51,6 +65,10 @@ public class CalculateShapesAreaApp {
         }
     }
 
+    /**
+     * Меню расчета площади круга
+     * @throws IOException
+     */
     private void calculateCircleArea() throws IOException {
         System.out.print("Расчет площади круга\n" +
                 "Введите радиус круга: ");
@@ -64,6 +82,10 @@ public class CalculateShapesAreaApp {
         endCalculation();
     }
 
+    /**
+     * Меню расчета площади квадрата
+     * @throws IOException
+     */
     private void calculateSquareArea() throws IOException {
         System.out.print("Расчет площади квадрата\n" +
                 "Введите длину стороны квадрата: ");
@@ -76,6 +98,10 @@ public class CalculateShapesAreaApp {
         endCalculation();
     }
 
+    /**
+     * Меню расчета площади прямоугольника
+     * @throws IOException
+     */
     private void calculateRectangleArea() throws IOException {
         System.out.println("Расчет площади прямоугольника");
 
@@ -91,6 +117,11 @@ public class CalculateShapesAreaApp {
         endCalculation();
     }
 
+    /**
+     * Служит для считывания вещественных чисел из консоли
+     * @return Считанное вещественное число
+     * @throws IOException
+     */
     private double getDoubleFromConsole() throws IOException {
         double input = 0;
         boolean isEntered = false;
@@ -108,15 +139,26 @@ public class CalculateShapesAreaApp {
         return input;
     }
 
+    /**
+     * Отображает сообщение обо окончании расчета
+     * @throws IOException
+     */
     private void endCalculation() throws IOException{
         System.out.println("Расчет закончен. Нажмите на Enter...\n");
         brConsole.readLine();
     }
 
+    /**
+     * Реализует выход из программы
+     */
     private void exit(){
         System.exit(0);
     }
 
+    /**
+     * Обработчик ошибок чтения из консоли. Просто выводит сообщение об ошибке
+     * @param e Исключение
+     */
     private void ioExceptionHandler(IOException e){
         System.out.println("Ошибка при попытке чтения из консоли: " + e.getMessage());
     }
